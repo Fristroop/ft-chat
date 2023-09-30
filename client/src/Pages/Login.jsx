@@ -7,7 +7,7 @@ export const Login = () => {
     e.preventDefault();
 
     const data = new FormData(e.target);
-    const res = await request("/users/auth", "post", data);
+    const res = await request("/users/login", "post", data);
     if (!res.ok) {
       alert("Something went wrong see console for detailed informations!");
     } else {
