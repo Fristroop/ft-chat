@@ -64,7 +64,7 @@ export const App = (props) => {
         <div
           id="sidebar"
           className={`${
-            !sideVisible ? "v-none" : ""
+            sideVisible ? "v-none" : ""
           } col-md p-3 bg-dark-subtle border-end`}
         >
           <Sidebar
