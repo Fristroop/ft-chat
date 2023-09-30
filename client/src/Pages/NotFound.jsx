@@ -11,7 +11,7 @@ export const NotFound = () => {
           <h1 className="text big">404 </h1>
           <h4 className="text">The page you are looking for is not found!</h4>
           <div className="my-5"></div>
-          <a href="/" className="btn btn-danger btn-lg fw-bold">
+          <a href="/" className="btn btn-dark btn-lg fw-bold">
             Return to Home
             <i className="fa-solid fa-rocket ms-2"></i>
           </a>
