@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { App } from "./Pages/App.jsx";
 import { Login } from "./Pages/Login.jsx";
 import { Register } from "./Pages/Register.jsx";
+import { NotFound } from "./Pages/NotFound.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
@@ -12,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/room" element={<App comp={"chat"} />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="*" element={<div>404</div>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Router>
 );
