@@ -2,7 +2,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 export const API = import.meta.env.PROD
-  ? "https://api.fristroop.com"
+  ? "https://api.chat.fristroop.com"
   : "http://localhost:3000";
 console.log(API);
 
