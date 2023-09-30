@@ -1,10 +1,10 @@
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
-export const API = import.meta.PROD
+export const API = import.meta.env.PROD
   ? "https://api.fristroop.com"
   : "http://localhost:3000";
-console.log(API, import.meta.PROD);
+console.log(API);
 
 /**
  *
