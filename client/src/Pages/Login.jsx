@@ -10,9 +10,8 @@ export const Login = () => {
     const res = await request("/users/login", "post", data);
     if (!res.ok) {
       alert("Something went wrong see console for detailed informations!");
-    } else {
-      return location.replace("/");
     }
+    return location.replace("/");
   };
 
   return (
