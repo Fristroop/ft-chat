@@ -41,15 +41,16 @@ app.use(upload.any());
 // Passport
 const store = MongoDBStore(session);
 
-const sessionConf = {
-  secret: process.env.secret_key,
-  resave: true,
-  saveUninitialized: true,
-  store: new store({
-    uri: process.env.mongodb,
-  }),
-};
-app.use(session(sessionConf));
+app.use(
+  session({
+    secret: process.env.secret_key,
+    resave: true,
+    saveUninitialized: true,
+    store: new store({
+      uri: process.env.mongodb,
+    }),
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 

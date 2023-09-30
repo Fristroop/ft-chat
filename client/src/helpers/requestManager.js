@@ -4,7 +4,7 @@ axios.defaults.withCredentials = true;
 export const API = import.meta.PROD
   ? "https://api.fristroop.com"
   : "http://localhost:3000";
-console.log(API);
+console.log(API, import.meta.PROD);
 
 /**
  *

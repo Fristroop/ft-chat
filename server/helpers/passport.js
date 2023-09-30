@@ -31,25 +31,6 @@ passport.deserializeUser(async (id, done) => {
   done(null, user);
 });
 
-export const UserAuth = (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
-    if (err) {
-      return next(err);
-    }
-
-    if (!user) {
-      return res.status(404).json({ message: info.message });
-    }
-
-    req.logIn(user, (err) => {
-      if (err) {
-        return next(err);
-      }
-      return res.status(200).json(user);
-    });
-  })(req, res, next);
-};
-
 export const RegisterUser = async (req, res) => {
   let { username, email, password } = req.body;
   username = username.toLowerCase();
