@@ -19,7 +19,6 @@ export const App = (props) => {
 
   const toggleSidebar = () => {
     setSideVisible(!sideVisible);
-    document.getElementById("sidebar").classList.toggle("v-none");
   };
 
   useEffect(() => {
@@ -62,7 +61,12 @@ export const App = (props) => {
   return (
     <div className="container-fluid">
       <div className="app row">
-        <div id="sidebar" className="col-md p-3 bg-dark-subtle border-end">
+        <div
+          id="sidebar"
+          className={`${
+            !sideVisible ? "v-none" : ""
+          } col-md p-3 bg-dark-subtle border-end`}
+        >
           <Sidebar
             sideVisible={sideVisible}
             toggleSidebar={toggleSidebar}
