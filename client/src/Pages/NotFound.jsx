@@ -2,7 +2,7 @@ import "../assets/styles/NotFound.css";
 
 export const NotFound = () => {
   return (
-    <div className="app container-fluid">
+    <div className="not-found container-fluid">
       <div className="d-flex justify-content-center align-items-center h-100">
         <div className="col-md-6 text-center rounded p-3">
           <h1 className="text">
