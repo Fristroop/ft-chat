@@ -1,0 +1,17 @@
+.login {
+  background-image: url("../../assets/imgs/bg-2.jpg");
+  background-size: cover;
+}
+
+.login .col-md-6 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.register {
+  background-image: url("../../assets/imgs/bg-3.png");
+  background-size: cover;
+}
+
+.register .col-md-6 {
+  background-color: rgba(0, 0, 0, 0.5);
+}

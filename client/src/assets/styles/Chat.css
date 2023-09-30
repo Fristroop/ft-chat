@@ -1,0 +1,66 @@
+/* Chat.css */
+.chatside {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.navbar {
+  flex: 0 0 auto;
+  z-index: 1;
+}
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-image: url("../imgs/bg-1.jpg");
+  background-size: cover;
+}
+
+.chat-input {
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.chat-message {
+  max-width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+  .chat-box {
+    padding: 1rem;
+  }
+
+  .chat-message {
+    max-width: 90%;
+  }
+}
+
+/*****************CHAT BODY *******************/
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.chat-message-left,
+.chat-message-right {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.chat-message-left {
+  margin-right: auto;
+}
+
+.chat-message-right {
+  flex-direction: row-reverse;
+  margin-left: auto;
+}
+
+.small {
+  font-size: 0.75rem;
+}

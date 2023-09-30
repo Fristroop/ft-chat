@@ -1,0 +1,35 @@
+body {
+  height: 100vh;
+}
+
+.app {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+#sidebar {
+  position: fixed;
+  width: 320px;
+  z-index: 1;
+  height: 100vh;
+  transition: 0.5s ease;
+}
+
+#sidebar.v-none {
+  margin-left: -320px;
+}
+
+#sidebar.v-none + #main {
+  margin-left: 0;
+}
+
+#main {
+  margin-left: 320px;
+  width: 100%;
+  transition: 0.5s ease;
+}
+
+.contact:hover {
+  background-color: #111;
+  transition: 0.35s;
+}
