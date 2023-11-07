@@ -19,7 +19,7 @@ router.post("/login", (req, res, next) => {
     }
 
     if (!user) {
-      return res.status(404).json({ message: info.message });
+      return res.status(400).json({ message: info.message });
     }
 
     req.logIn(user, (err) => {

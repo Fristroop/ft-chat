@@ -1,6 +1,5 @@
-import { request } from "../helpers/requestManager";
-
-import "../assets/styles/Login.css";
+import axios from "axios";
+import { API } from "../config";
 
 export const Register = () => {
   const login = async (e) => {
@@ -11,9 +10,17 @@ export const Register = () => {
       return alert("Passwords does not match");
     }
 
-    const res = await request("/users/register", "post", data);
-    if (res.ok) return location.replace("/login");
-    console.error(res);
+    try {
+      const res = await axios.post(API + "/users/register", data);
+      if (res.status === 200) return location.replace("/login");
+      else alert(JSON.stringify(res.data));
+    } catch (error) {
+      alert(
+        JSON.stringify(error.response?.data) ||
+          "Network Error check developer console for more details!"
+      );
+      console.error(error);
+    }
   };
 
   return (

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
-import { CreateRoom } from "./CreateRoom";
-import { JoinRoom } from "./JoinRoom";
+import { CreateRoom } from "../components/CreateRoom";
+import { JoinRoom } from "../components/JoinRoom";
 
 export const Rooms = (props) => {
   const { sideVisible, toggleSidebar, socket } = props;

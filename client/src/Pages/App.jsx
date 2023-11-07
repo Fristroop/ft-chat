@@ -1,15 +1,14 @@
 /* eslint-disable react/prop-types */
 import { io } from "socket.io-client";
-
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 import { Sidebar } from "../components/Sidebar";
-import { Rooms } from "../components/Rooms";
-import { Chat } from "../components/Chat";
-import { API, request } from "../helpers/requestManager";
-
+import { Rooms } from "./Rooms";
+import { Chat } from "./Chat";
 import "../assets/styles/App.css";
 import { Loader } from "./Loader";
+import { API } from "../config";
 
 export const App = (props) => {
   const { comp } = props;
@@ -24,26 +23,28 @@ export const App = (props) => {
   useEffect(() => {
     // Api Response
     const fetchSelf = async () => {
-      const res = await request("/users/@me", "get");
-      console.log(res.config.url, res);
-      // 401
-      if (!res.ok) return location.replace("/login");
-      // 200
-      setUser(res.data);
+      try {
+        const res = await axios.get(API + "/users/@me", {
+          withCredentials: true,
+        });
+        setUser(res.data);
 
-      // WS Connection
-      const socket = io(API, {
-        query: {
-          userId: res.data.id,
-        },
-      });
+        // WS Connection
+        const socket = io(API, {
+          query: {
+            userId: res.data.id,
+          },
+        });
 
-      setSocket(socket);
+        setSocket(socket);
 
-      // Disconnect
-      socket.on("disconnect", () => {
-        location.reload();
-      });
+        // Disconnect
+        socket.on("disconnect", () => {
+          location.reload();
+        });
+      } catch (error) {
+        location.replace("/login");
+      }
     };
     fetchSelf();
 

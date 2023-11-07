@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
-import { ChatInput } from "./ChatInput";
-import { request } from "../helpers/requestManager";
+import { ChatInput } from "../components/ChatInput";
 
 import "../assets/styles/Chat.css";
 
-import { ChatBody } from "./ChatBody";
+import { ChatBody } from "../components/ChatBody";
 
 import pp from "../assets/imgs/pp.jpg";
-import { Loader } from "../Pages/Loader";
-import { Confirm } from "./Confirm";
+import { Loader } from "./Loader";
+import { Confirm } from "../components/Confirm";
+import axios from "axios";
+import { API } from "../config";
 
 export const Chat = (props) => {
   const { sideVisible, toggleSidebar, socket, user } = props;
@@ -21,7 +22,9 @@ export const Chat = (props) => {
 
     const fetchChatData = async () => {
       try {
-        const res = await request("/rooms/" + params.get("id"));
+        const res = await axios.get(API + "/rooms/" + params.get("id"), {
+          withCredentials: true,
+        });
         setChat(res.data);
       } catch (error) {
         console.error("Error fetching chat data:", error);
@@ -62,9 +65,15 @@ export const Chat = (props) => {
             <p className="text-muted small">{chat.members.length} people</p>
           </div>
         </div>
-        <div>
+        <div className="d-flex gap-3">
           <button
-            className="btn btn-danger"
+            className="btn btn-outline-primary btn-sm"
+            onClick={() => alert(`Room id is ${chat.id}`)}
+          >
+            <i className="fa-solid fa-share"></i>
+          </button>
+          <button
+            className="btn btn-danger btn-sm"
             data-bs-toggle="modal"
             data-bs-target="#confirm"
           >

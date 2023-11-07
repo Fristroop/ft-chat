@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { request } from "../helpers/requestManager";
 import pp from "../assets/imgs/pp.jpg";
 import { Loader } from "../Pages/Loader";
+import axios from "axios";
+import { API } from "../config";
 
 export const Contacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -16,7 +17,9 @@ export const Contacts = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const res = await request("/rooms");
+      const res = await axios.get(API + "/rooms", {
+        withCredentials: true,
+      });
       setContacts(res.data);
       setFilteredContacts(res.data);
     };

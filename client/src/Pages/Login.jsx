@@ -1,17 +1,26 @@
-import { request } from "../helpers/requestManager";
-
+import axios from "axios";
 import "../assets/styles/Login.css";
+import { API } from "../config";
 
 export const Login = () => {
   const login = async (e) => {
     e.preventDefault();
 
     const data = new FormData(e.target);
-    const res = await request("/users/login", "post", data);
-    if (!res.ok) {
-      alert("Something went wrong see console for detailed informations!");
+
+    try {
+      const res = await axios.post(API + "/users/login", data, {
+        withCredentials: true,
+      });
+      console.log(res);
+      return location.replace("/");
+    } catch (error) {
+      alert(
+        JSON.stringify(error.response?.data) ||
+          "Network Error check developer console for more details!"
+      );
+      console.error(error);
     }
-    return location.replace("/");
   };
 
   return (

@@ -9,7 +9,7 @@ export const router = app;
 router.use("/users", UsersRouter);
 
 app.get("/", (req, res) => {
-  res.send({ msg: "Hello World! Wassup?" });
+  res.send({ msg: "Hello World! Wassssup?" });
 });
 
 app.get("/rooms", isLoggedIn, async (req, res) => {
