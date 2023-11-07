@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import pp from "../assets/imgs/pp.jpg";
+import pp from "../assets/imgs/space.png";
 import { Loader } from "../Pages/Loader";
 import axios from "axios";
 import { API } from "../config";

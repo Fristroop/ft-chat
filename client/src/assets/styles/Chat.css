@@ -6,9 +6,11 @@
   overflow: hidden;
 }
 
-.navbar {
+.chat-header {
   flex: 0 0 auto;
   z-index: 1;
+  position: sticky;
+  top: 0;
 }
 
 .chat-body {

@@ -7,7 +7,7 @@ import "../assets/styles/Chat.css";
 
 import { ChatBody } from "../components/ChatBody";
 
-import pp from "../assets/imgs/pp.jpg";
+import pp from "../assets/imgs/space.png";
 import { Loader } from "./Loader";
 import { Confirm } from "../components/Confirm";
 import axios from "axios";
@@ -41,44 +41,43 @@ export const Chat = (props) => {
 
   return (
     <div className="chatside">
-      <div className="navbar p-0 pe-3 bg-dark-subtle border-bottom">
-        <div className="text-light text-decoration-none rounded px-1 d-flex">
-          <div className="ms-3 d-flex align-items-center justify-content-center">
+      <div className="chat-header navbar bg-dark-subtle border-bottom">
+        <div className="container-fluid">
+          <div className="navbar-brand d-flex gap-3 align-items-center">
             <button
               className={`btn ${sideVisible ? "" : "d-none"}`}
               onClick={toggleSidebar}
             >
               <i className={`fa-solid fa-angle-right fs-5`}></i>
             </button>
-          </div>
-          <div className="mx-3 d-flex align-items-center">
             <img
               src={pp}
               alt=""
-              width={"40px"}
-              height={"40px"}
+              width={"50px"}
+              height={"50px"}
               className="rounded-circle"
             />
+            <div>
+              #{chat.name}
+              <br />
+              <small className="text-muted">{chat.members.length} users</small>
+            </div>
           </div>
-          <div className="pt-3">
-            <h5 className="mb-0">{chat.name}</h5>
-            <p className="text-muted small">{chat.members.length} people</p>
+          <div className="d-flex gap-3">
+            <button
+              className="btn btn-outline-primary btn-sm"
+              onClick={() => alert(`Room id is ${chat.id}`)}
+            >
+              <i className="fa-solid fa-share"></i>
+            </button>
+            <button
+              className="btn btn-danger btn-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#confirm"
+            >
+              <i className="fa-solid fa-right-from-bracket"></i>
+            </button>
           </div>
-        </div>
-        <div className="d-flex gap-3">
-          <button
-            className="btn btn-outline-primary btn-sm"
-            onClick={() => alert(`Room id is ${chat.id}`)}
-          >
-            <i className="fa-solid fa-share"></i>
-          </button>
-          <button
-            className="btn btn-danger btn-sm"
-            data-bs-toggle="modal"
-            data-bs-target="#confirm"
-          >
-            <i className="fa-solid fa-right-from-bracket"></i>
-          </button>
         </div>
       </div>
 
