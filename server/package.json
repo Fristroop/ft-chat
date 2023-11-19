@@ -8,7 +8,15 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "bootstrap",
+    "mongodb",
+    "express",
+    "socket.io",
+    "realtime chat app",
+    "passport"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
